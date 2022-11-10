@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
-    <script src="objects.js"></script>
+    <script src="objects.js" defer></script>
 </head>
 <body>
     <table>
@@ -26,9 +25,17 @@
     <button id="newBook">Add Book</button>
     <div class="form">
         <form id="bookForm">
-            <input type="text" />
-            <input type="text" />
-            <imput type="text" />
+            <h1>Add a new book</h1>
+            <label for="title">Title</label>
+            <input type="text" id="newTitle" placeholder="The Hobbit" name="title" required>
+            <label for="author">Author</label> 
+            <input type="text" id="newAuthor" placeholder="J.R.R Tolkien" name="author" required>
+            <label for="pages">Pages</label>
+            <input type="text" id="newPages" placeholder="295" name="pages" required>
+            <label for="read">Read</label>
+            <input type="checkbox" id="readCheck" name="read">
+            <button type="button" id="addBook" class="submit">Submit</button>
+            <button type="button" id="closeForm" class="cancel">Close</button>
         </form>
     </div>
 </body>

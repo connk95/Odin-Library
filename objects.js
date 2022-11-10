@@ -12,36 +12,53 @@ function Book(title, author, pages, read) {
 
 const theHobbit = new Book("The Hobbit", "J.R.R Tolkien", "295 pages", "read");
 
-console.log(theHobbit.info());
-
 myLibrary.push(theHobbit);
 
-console.log(myLibrary);
 
+const bookForm = document.getElementById('bookForm');
 //open or close the form
-const newBook = document.getElementById("newBook");
-newBook.addEventListener("click", () => {
-    const bookForm = document.getElementById("bookForm");
-
-    if (bookForm.style.display === "none") {
-        bookForm.style.display = "block";
+const newBook = document.getElementById('newBook');
+newBook.addEventListener('click', () => {
+    if (bookForm.style.visibility === "hidden") {
+        bookForm.style.visibility = "visible"
     } else {
-        bookForm.style.display = "none";
-    }
+        bookForm.style.visibility = "hidden"
+    } 
 });
 
+// const closeForm = document.getElementById('closeForm');
+// closeForm.addEventListener('click', () => {
+//     if (bookForm.style.visibility === "hidden") {
+//         bookForm.style.visibility = "visible"
+//     } else {
+//         bookForm.style.visibility = "hidden"
+//     }
+// });
+
 //use form data as arguments to use in Book method
-const addBook = document.getElementById("addBook");
-addBook.addEventListener("click", () => {
-    //title = document.getElementById(text input)
-    //author = document.getElementById(text input)
-    //pages = document.getElementById(num input)
-    //read = document.getElementById(checkbox)
-    addBookToLibrary(title, aurthor, pages, read);
+
+const closeForm = document.getElementById('closeForm');
+closeForm.addEventListener('click', () => {
+    bookForm.style.visibility = "hidden"
+});
+
+const addBook = document.getElementById('addBook');
+addBook.addEventListener('click', () => {
+    title = document.getElementById("newTitle").value;
+    author = document.getElementById("newAuthor").value;
+    pages = document.getElementById("newPages").value;
+    if (document.getElementById("readCheck").checked = true) {
+        read = "read"
+    } else {
+        read = ""
+    };
+    addBookToLibrary(title, author, pages, read);
+    console.log(myLibrary);
 });
 
 //push new object to array
 function addBookToLibrary(title, author, pages, read) {
     let newBook = new Book(title, + author + pages + read) 
-    myLibrary.push(newBook)
-}
+    myLibrary.push(newBook) //push(title)?
+    console.log(myLibrary);
+};
