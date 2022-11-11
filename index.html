@@ -8,18 +8,12 @@
     <script src="objects.js" defer></script>
 </head>
 <body>
-    <table>
+    <table id="bookTable">
         <tr>
             <td>Title</td>
             <td>Author</td>
             <td>Pages</td>
             <td></td> 
-        </tr>
-        <tr>
-            <td>The Hobbit</td>
-            <td>J.R.R Tolkien</td>
-            <td>295</td>
-            <td>Read</td>
         </tr>
     </table>
     <button id="newBook">Add Book</button>
@@ -27,11 +21,11 @@
         <form id="bookForm">
             <h1>Add a new book</h1>
             <label for="title">Title</label>
-            <input type="text" id="newTitle" placeholder="The Hobbit" name="title" required>
+            <input type="text" id="addTitle" placeholder="The Hobbit" name="title" required>
             <label for="author">Author</label> 
-            <input type="text" id="newAuthor" placeholder="J.R.R Tolkien" name="author" required>
+            <input type="text" id="addAuthor" placeholder="J.R.R Tolkien" name="author" required>
             <label for="pages">Pages</label>
-            <input type="text" id="newPages" placeholder="295" name="pages" required>
+            <input type="text" id="addPages" placeholder="295" name="pages" required>
             <label for="read">Read</label>
             <input type="checkbox" id="readCheck" name="read">
             <button type="button" id="addBook" class="submit">Submit</button>
