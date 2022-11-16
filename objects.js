@@ -39,9 +39,9 @@ addBook.addEventListener('click', () => {
     author = document.getElementById("addAuthor").value;
     pages = document.getElementById("addPages").value;
     const readCheck = document.getElementById("readCheck");
-    if (readCheck.checked = false) {
-        read = " "
-    } else if (readCheck.checked = true) {
+    if (readCheck.checked == false) {
+        read = ""
+    } else if (readCheck.checked == true) {
         read = "read"
     };
     addBookToLibrary(title, author, pages, read);
@@ -51,38 +51,34 @@ addBook.addEventListener('click', () => {
 function addBookToLibrary(title, author, pages, read) {
     let newBook = new Book(title, author, pages, read) 
     myLibrary.push(newBook)
-    displayObject(newBook);
+    //removeObject();
+    displayObject();
     console.log(newBook);
     console.log(myLibrary);
 };
 
 //erase table and refresh with new data
 //display object in table
-function displayObject(newBook) {
-    // const rows = document.getElementsByClassName("bookRow");
-    // while(rows.length > 0){
-    //     rows[0].parentNode.removeChild(rows[0]);
-    // }
-
-    //for (let i = myLibrary.length - 1; i < myLibrary.length; i--) {
+function displayObject() { 
+    for (let i = myLibrary.length - 1; i < myLibrary.length; i++) {
         const newRow = document.createElement("tr");
-        newRow.class = "bookRow"
+        newRow.id = `bookRow${myLibrary.length - 1}`
         
         const newTitle = document.createElement("td");
-        newTitle.innerText = myLibrary[myLibrary.length - 1].title;
+        newTitle.innerText = myLibrary[i].title;
         newRow.appendChild(newTitle);
 
         const newAuthor = document.createElement("td");
-        newAuthor.innerText = myLibrary[myLibrary.length - 1].author;
+        newAuthor.innerText = myLibrary[i].author;
         newRow.appendChild(newAuthor);
 
         const newPages = document.createElement("td");
-        newPages.innerText = myLibrary[myLibrary.length - 1].pages;
+        newPages.innerText = myLibrary[i].pages;
         newRow.appendChild(newPages);
 
         const newRead = document.createElement("td");
-        newRead.innerText = myLibrary[myLibrary.length - 1].read;
-        newRead.id = myLibrary.length - 1;
+        newRead.innerText = myLibrary[i].read;
+        newRead.id = myLibrary[i];
         newRow.appendChild(newRead);
 
         const finished = document.createElement("button");
@@ -95,10 +91,22 @@ function displayObject(newBook) {
             myLibrary[finished.id].read = "read"
             newRead.innerText = myLibrary[finished.id].read;
         });
+
+        const remove = document.createElement("button");
+        remove.type = "button"
+        remove.innerHTML = "Remove"
+        remove.id = myLibrary.length - 1
+        newRow.appendChild(remove);
+        remove.addEventListener('click', () => {
+            myLibrary.splice(remove.id, 1);
+            const removeRow = document.getElementById(`bookRow${remove.id}`)
+            console.log(removeRow);
+            removeRow.remove()
+        });
         
         const table = document.getElementById("bookTable");
         table.appendChild(newRow);
-    //}
+    }
 };
 
 // const finishRead = document.querySelectorAll('finishButton');
