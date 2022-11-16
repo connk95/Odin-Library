@@ -98,7 +98,6 @@ function displayObject() {
         remove.addEventListener('click', () => {
             myLibrary.splice(remove.id, 1);
             const removeRow = document.getElementById(`bookRow${remove.id}`)
-            console.log(removeRow);
             removeRow.remove()
         });
         
