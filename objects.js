@@ -10,29 +10,26 @@ function Book(title, author, pages, read) {
     }
 };
 
-// const theHobbit = new Book("The Hobbit", "J.R.R Tolkien", "295 pages", "read");
-// myLibrary.push(theHobbit);
-
-// console.log(theHobbit.author);
-
 //show or hide inputs
 const bookForm = document.getElementById('bookForm');
-
 const newBook = document.getElementById('newBook');
 newBook.addEventListener('click', () => {
     if (bookForm.style.visibility === "hidden") {
         bookForm.style.visibility = "visible"
-    } else {
+    } else if (bookForm.style.visibility === "visible") {
         bookForm.style.visibility = "hidden"
-    } 
+    } else {
+        bookForm.style.visibility = "visible"
+    }
 });
 
+//allows user to close form
 const closeForm = document.getElementById('closeForm');
 closeForm.addEventListener('click', () => {
     bookForm.style.visibility = "hidden"
 });
 
-//use information from input in constructor
+//use information from input in constructor and reset form
 const addBook = document.getElementById('addBook');
 addBook.addEventListener('click', () => {
     title = document.getElementById("addTitle").value;
@@ -45,19 +42,18 @@ addBook.addEventListener('click', () => {
         read = "read"
     };
     addBookToLibrary(title, author, pages, read);
+    document.getElementById("addTitle").value = "";
+    document.getElementById("addAuthor").value = "";
+    document.getElementById("addPages").value = "";
 });
 
 //push new object to array
 function addBookToLibrary(title, author, pages, read) {
     let newBook = new Book(title, author, pages, read) 
     myLibrary.push(newBook)
-    //removeObject();
     displayObject();
-    console.log(newBook);
-    console.log(myLibrary);
 };
 
-//erase table and refresh with new data
 //display object in table
 function displayObject() { 
     for (let i = myLibrary.length - 1; i < myLibrary.length; i++) {
@@ -81,6 +77,7 @@ function displayObject() {
         newRead.id = myLibrary[i];
         newRow.appendChild(newRead);
 
+        //create button to change read status
         const finished = document.createElement("button");
         finished.type = "button"
         finished.innerHTML = "Finished"
@@ -92,6 +89,7 @@ function displayObject() {
             newRead.innerText = myLibrary[finished.id].read;
         });
 
+        //create button to remove this object from array and table
         const remove = document.createElement("button");
         remove.type = "button"
         remove.innerHTML = "Remove"
@@ -108,11 +106,3 @@ function displayObject() {
         table.appendChild(newRow);
     }
 };
-
-// const finishRead = document.querySelectorAll('finishButton');
-// finishRead.addEventListener('click', () => {
-//     //title.read = "read"
-//     if (finishButton.id = title) {
-//         title.read = "read"
-//     }
-// });
