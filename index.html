@@ -8,29 +8,62 @@
     <script src="objects.js" defer></script>
 </head>
 <body>
-    <table id="bookTable">
-        <tr>
-            <td>Title</td>
-            <td>Author</td>
-            <td>Pages</td>
-            <td>Read?</td> 
-        </tr>
-    </table>
-    <button id="newBook">Add Book</button>
-    <div class="form">
-        <form id="bookForm">
-            <h1>Add a new book</h1>
-            <label for="title">Title</label>
-            <input type="text" id="addTitle" placeholder="The Hobbit" name="title" required>
-            <label for="author">Author</label> 
-            <input type="text" id="addAuthor" placeholder="J.R.R Tolkien" name="author" required>
-            <label for="pages">Pages</label>
-            <input type="text" id="addPages" placeholder="295" name="pages" required>
-            <label for="read">Read</label>
-            <input type="checkbox" id="readCheck" name="read">
-            <button type="button" id="addBook" class="submit">Submit</button>
-            <button type="button" id="closeForm" class="cancel">Close</button>
-        </form>
+    <div class="container">
+        <div class="row">
+            <h1>My Library</h1>
+        </div>
+        <div class="row">
+            <table id="bookTable">
+                <colgroup>
+                    <col span="6">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Pages</th>
+                        <th>Read?</th> 
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="bodyRow">
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <button id="newBook">ADD NEW</button>
+            <div class="form">
+                <form id="bookForm">
+                    <h1>Add a new book</h1>
+                        <div id="bookInput">
+                            <div id="inputs">
+                                <div id="titleCol">
+                                    <label for="title">Title</label>
+                                    <input type="text" id="addTitle" placeholder="The Hobbit" name="title" required>
+                                </div>
+                                <div id="authorCol">
+                                    <label for="author">Author</label> 
+                                    <input type="text" id="addAuthor" placeholder="J.R.R Tolkien" name="author" required>
+                                </div>
+                                <div id="pagesCol">
+                                    <label for="pages">Pages</label>
+                                    <input type="number" id="addPages" placeholder="295" name="pages" required>
+                                </div>
+                                <div id="readCol">
+                                    <label for="read">Read</label>
+                                    <input type="checkbox" id="readCheck" name="read">
+                                </div>
+                            </div>
+                            <div id="buttonCol">
+                                <button type="button" id="addBook" class="submit">SUBMIT</button>
+                                <button type="button" id="closeForm" class="cancel">CLOSE</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </body>
 </html>

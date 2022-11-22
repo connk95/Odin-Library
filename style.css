@@ -1,8 +1,97 @@
-table, tr, td {
-    border: 1px solid black;
-  }
+@font-face {
+  font-family: Montserrat;
+  src: url(../Library/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.container {
+  /* padding: 5rem; */
+  margin: 5rem 8rem 5rem 8rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0 10px 0;
+}
+
+h1, th, td, button, label {
+  font-family: Montserrat;
+  color: black;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tr {
+  border-bottom: 1pt solid rgba(153, 153, 153, 0.416);
+  padding: 10px 0 10px 0;
+}
+
+th {
+  font-size: 24px;
+  width: 15%;
+}
+
+th, td {
+  text-align: left;
+}
+
+button {
+  width: 120px;
+  height: 40px;
+  border-radius: 4px;
+  margin-right: 20px;
+  color: white;
+  font-size: 14px;
+}
+
+#bookInput {
+  display: flex;
+  flex-direction: column;
+}
+
+#addBook, #newBook {
+  background-color: rgb(35, 175, 230);
+}
+
+#closeForm {
+  background-color: rgb(222, 75, 75);
+}
+
+#inputs {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+}
+
+#titleCol, #authorCol, #pagesCol, #readCol, #buttonCol {
+  margin-right: 20px;
+}
+
+#titleCol, #authorCol, #pagesCol {
+  display: flex;
+  flex-direction: column;
+}
+
+#readCol, #buttonCol {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
 
 #bookForm {
   visibility: hidden;
 }
+
 

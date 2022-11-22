@@ -79,29 +79,42 @@ function displayObject() {
 
         //create button to change read status
         const finished = document.createElement("button");
+        const finishedCol = document.createElement("td");
         finished.type = "button"
-        finished.innerHTML = "Finished"
+        finished.innerHTML = "FINISHED"
         finished.className = "finishButton"
         finished.id = myLibrary.length - 1;
-        newRow.appendChild(finished);
+        finished.style.background="rgb(35, 175, 230)";
+        finished.style.margin="10px"
+        newRow.appendChild(finishedCol);
+        finishedCol.appendChild(finished);
         finished.addEventListener('click', () => {
-            myLibrary[finished.id].read = "read"
-            newRead.innerText = myLibrary[finished.id].read;
+            if (myLibrary[finished.id].read === "") {
+                myLibrary[finished.id].read = "read"
+                newRead.innerText = myLibrary[finished.id].read;
+            } else if (myLibrary[finished.id].read === "read") {
+                myLibrary[finished.id].read = ""
+                newRead.innerText = myLibrary[finished.id].read;
+            };
         });
 
         //create button to remove this object from array and table
         const remove = document.createElement("button");
+        const removeCol = document.createElement("td");
         remove.type = "button"
-        remove.innerHTML = "Remove"
+        remove.innerHTML = "REMOVE"
         remove.id = myLibrary.length - 1
-        newRow.appendChild(remove);
+        remove.style.background="rgb(222, 75, 75)";
+        remove.style.marginRight="0px";
+        newRow.appendChild(removeCol);
+        removeCol.appendChild(remove);
         remove.addEventListener('click', () => {
             myLibrary.splice(remove.id, 1);
             const removeRow = document.getElementById(`bookRow${remove.id}`)
             removeRow.remove()
         });
         
-        const table = document.getElementById("bookTable");
+        const table = document.getElementById("bodyRow");
         table.appendChild(newRow);
     }
 };
