@@ -1,8 +1,3 @@
-@font-face {
-  font-family: Montserrat;
-  src: url(../Library/Montserrat/Montserrat-VariableFont_wght.ttf);
-}
-
 button, input[type="submit"], input[type="reset"] {
 	background: none;
 	color: inherit;
@@ -14,7 +9,6 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 .container {
-  /* padding: 5rem; */
   margin: 5rem 8rem 5rem 8rem;
 }
 
@@ -25,7 +19,7 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 h1, th, td, button, label {
-  font-family: Montserrat;
+  font-family: 'Montserrat', sans-serif;
   color: black;
 }
 
